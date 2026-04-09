@@ -91,6 +91,28 @@
                 transform: translate(-50%, -50%) scale(1.1);
             }
         }
+        
+        .footer-links {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 11px;
+            display: flex;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.4);
+            text-decoration: none;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -98,6 +120,10 @@
     <div class="container">
         <img src="37degreesN.png" alt="37 Degrees North" class="logo">
         <p class="tagline">building in an AI native world ....shh...</p>
+    </div>
+    <div class="footer-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
     </div>
 </body>
 </html>
