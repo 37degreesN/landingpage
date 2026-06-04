@@ -1,129 +1,1637 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>37 Degrees North</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            overflow: hidden;
-        }
-        
-        .container {
-            text-align: center;
-            max-width: 800px;
-            animation: fadeIn 1.2s ease-out;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .logo {
-            max-width: 280px;
-            height: auto;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 10px 40px rgba(255, 255, 255, 0.1));
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .tagline {
-            font-size: 28px;
-            color: #e8e8e8;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            line-height: 1.5;
-            opacity: 0.9;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        .glow {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(120, 120, 255, 0.35) 0%, rgba(80, 80, 200, 0.2) 40%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            animation: pulse 4s ease-in-out infinite;
-            z-index: 0;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.3;
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: translate(-50%, -50%) scale(1.1);
-            }
-        }
-        
-        .footer-links {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 11px;
-            display: flex;
-            gap: 20px;
-            z-index: 2;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>37°N Labs — End generic health</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="assets/colors_and_type.css" rel="stylesheet" />
+  <link href="site.css" rel="stylesheet" />
+  <style>
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      padding: 92px 0 76px;
+    }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.4);
-            text-decoration: none;
-            transition: color 0.3s;
-            letter-spacing: 0.5px;
-        }
+    .hero-kicker {
+      margin-bottom: 26px;
+    }
 
-        .footer-links a:hover {
-            color: rgba(255, 255, 255, 0.8);
-        }
-    </style>
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(64px, 12.5vw, 168px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .hero h1 .sage {
+      color: var(--sage);
+    }
+
+    .hero-foot {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 48px;
+      margin-top: 60px;
+    }
+
+    .hero-lead {
+      font-size: clamp(17px, 1.6vw, 20px);
+      line-height: 1.55;
+      color: var(--sub);
+      max-width: 460px;
+      margin: 0;
+    }
+
+    .hero-lead em {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    .hero-aside {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 22px;
+      flex-shrink: 0;
+    }
+
+    .hero-pulse {
+      width: 300px;
+      height: 52px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-foot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+      }
+
+      .hero-aside {
+        align-items: flex-start;
+      }
+    }
+
+    /* ── Interstitial dot-matrix heart band ─────────────────── */
+    .band {
+      display: flex;
+      justify-content: center;
+      padding: 8px 0 0;
+    }
+
+    .band canvas {
+      width: 200px;
+      height: 200px;
+      display: block;
+    }
+
+    @media (max-width: 560px) {
+      .band canvas {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    /* ── Mission ────────────────────────────────────────────── */
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 0.58fr 0.42fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    .mission h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(34px, 4.4vw, 56px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    .mission h2 .sage {
+      color: var(--sage);
+    }
+
+    .mission-body p {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.66;
+      color: var(--sub);
+      margin: 0 0 22px;
+    }
+
+    .mission-body p strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .mission-body .pull {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(22px, 2.6vw, 30px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      border-left: 2px solid var(--sage);
+      padding-left: 22px;
+      margin: 34px 0 0;
+    }
+
+    /* ── The Science / diagram ──────────────────────────────── */
+    .science {
+      background: var(--surface-solid);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .science-head {
+      max-width: 720px;
+      margin-bottom: 64px;
+    }
+
+    .science-head h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin: 0 0 20px;
+    }
+
+    .science-head h2 .sage {
+      color: var(--sage);
+    }
+
+    .science-head p {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.6;
+      color: var(--sub);
+      margin: 0;
+      max-width: 600px;
+    }
+
+    /* ── The Science / unified flow diagram ─────────────────── */
+    .flow {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .flow-links {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+
+    .flow-links path {
+      fill: none;
+      stroke: var(--sage);
+      stroke-width: 1.3;
+      opacity: 0.5;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      transition: stroke-dashoffset 1.2s cubic-bezier(.4, .5, .2, 1);
+    }
+
+    .flow.in .flow-links path {
+      stroke-dashoffset: 0;
+    }
+
+    @media (max-width: 720px) {
+      .flow-links {
+        display: none;
+      }
+    }
+
+    .flow-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .flow-row.outcomes {
+      padding: 0 4%;
+    }
+
+    @media (max-width: 720px) {
+      .flow-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px 32px;
+      }
+
+      .flow-row.outcomes {
+        padding: 0;
+      }
+    }
+
+    .node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      width: 158px;
+      background: var(--bg);
+      padding: 6px 6px 10px;
+    }
+
+    .node .n-glyph {
+      width: 58px;
+      height: 58px;
+      border-radius: var(--r-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .node .n-glyph .line-art {
+      width: 36px;
+      height: 24px;
+      color: var(--sage);
+      opacity: 0.92;
+    }
+
+    .node .n-label {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .node .n-sub {
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: var(--sub);
+    }
+
+    .t-gen {
+      background: var(--sage-12);
+    }
+
+    .t-env {
+      background: var(--domain-sleep);
+    }
+
+    .t-soc {
+      background: var(--domain-gut);
+    }
+
+    .t-life {
+      background: var(--domain-activity);
+    }
+
+    .t-perf {
+      background: var(--sand);
+    }
+
+    .t-health {
+      background: var(--domain-sleep);
+    }
+
+    .t-life2 {
+      background: var(--domain-activity);
+    }
+
+    .flow-cap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      padding: 34px 0;
+    }
+
+    .flow-cap .mono {
+      background: var(--bg);
+      padding: 5px 14px;
+      color: var(--mute);
+    }
+
+    /* the lens — the single hub of the diagram */
+    .lens {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--r);
+      background: var(--bg);
+      padding: 32px 38px;
+    }
+
+    @media (max-width: 560px) {
+      .lens {
+        padding: 26px 22px;
+      }
+    }
+
+    .lens-chain {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .lens-node {
+      flex: 1;
+      min-width: 190px;
+      text-align: center;
+    }
+
+    .lens-node .l-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(21px, 2.4vw, 27px);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+
+    .lens-node .l-mono {
+      margin-top: 9px;
+      display: inline-block;
+    }
+
+    .lens-arrow {
+      flex-shrink: 0;
+      width: 48px;
+      height: 1px;
+      background: var(--sage);
+      opacity: 0.6;
+      position: relative;
+      margin: 0 22px;
+    }
+
+    .lens-arrow::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -4px;
+      width: 8px;
+      height: 8px;
+      border-top: 1.4px solid var(--sage);
+      border-right: 1.4px solid var(--sage);
+      transform: rotate(45deg);
+    }
+
+    @media (max-width: 560px) {
+      .lens-arrow {
+        width: 100%;
+        flex-basis: 100%;
+        margin: 18px 0;
+      }
+
+      .lens-arrow::after {
+        display: none;
+      }
+    }
+
+    .lens-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .etag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--sage);
+      border-radius: var(--r-full);
+      padding: 8px 16px;
+    }
+
+    .etag .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: var(--r-full);
+      background: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .etag .mono {
+      color: var(--sage);
+    }
+
+    /* ── Team ───────────────────────────────────────────────── */
+    .team-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+
+    .team-head h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .team-head p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--sub);
+      max-width: 380px;
+      margin: 0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+
+    @media (max-width: 760px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .member {
+      background: var(--bg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: var(--r-full);
+      background: var(--sage-06);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .member .m-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .member .m-role {
+      margin-top: 4px;
+    }
+
+    .member .m-bio {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--sub);
+      margin: 0;
+    }
+
+    .member .m-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--sage);
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: auto;
+    }
+
+    .member .m-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ── CTA / waitlist ─────────────────────────────────────── */
+    .cta {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .cta .wrap {
+      text-align: center;
+    }
+
+    .cta .mono {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cta h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      margin: 22px 0 16px;
+      color: #fff;
+    }
+
+    .cta h2 .sage {
+      color: var(--sage-mid);
+    }
+
+    .cta p {
+      font-size: 17px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.62);
+      max-width: 440px;
+      margin: 0 auto 40px;
+    }
+
+    .wl-form {
+      display: flex;
+      gap: 10px;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    .wl-form input {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--r);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      padding: 15px 18px;
+      outline: none;
+      transition: border-color 0.18s;
+    }
+
+    .wl-form input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .wl-form input:focus {
+      border-color: var(--sage-mid);
+    }
+
+    .wl-form .btn-sage {
+      background: var(--sage-mid);
+      color: var(--ink);
+    }
+
+    .wl-note {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 18px;
+    }
+
+    .wl-success {
+      display: none;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 22px;
+      color: #fff;
+      padding: 16px 0;
+    }
+
+    .wl-success.show {
+      display: block;
+    }
+
+    .wl-form.hide {
+      display: none;
+    }
+
+    @media (max-width: 560px) {
+      .wl-form {
+        flex-direction: column;
+      }
+    }
+
+    /* ══ EXPERIMENTS (merged) ═══════════════════════════════════ */
+    .exp-head {
+      max-width: 760px;
+      margin-bottom: 56px;
+    }
+
+    .exp-head h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(32px, 4.6vw, 58px);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin: 0 0 22px;
+      color: var(--ink);
+    }
+
+    .exp-head h2 .sage {
+      color: var(--sage);
+    }
+
+    .exp-head p {
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.62;
+      color: var(--sub);
+      margin: 0;
+      max-width: 600px;
+    }
+
+    .exp-head p em {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* loop */
+    .loop {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .loop-step {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 4px 0;
+    }
+
+    .loop-step .n {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      color: var(--sage);
+      text-transform: uppercase;
+    }
+
+    .loop-step .t {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(22px, 2.4vw, 30px);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .loop-step .d {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--sub);
+      max-width: 220px;
+    }
+
+    .loop-arrow {
+      flex: 1;
+      min-width: 40px;
+      height: 1px;
+      background: var(--line);
+      position: relative;
+      margin: 0 28px;
+      align-self: center;
+    }
+
+    .loop-arrow::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-top: 1px solid var(--line-strong);
+      border-right: 1px solid var(--line-strong);
+      transform: rotate(45deg);
+    }
+
+    .loop-return {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+      color: var(--mute);
+    }
+
+    .loop-return .mono {
+      color: var(--mute);
+    }
+
+    .loop-return .la {
+      width: 120px;
+      height: 18px;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 820px) {
+      .loop-arrow {
+        width: 100%;
+        flex-basis: 100%;
+        height: auto;
+        margin: 14px 0;
+      }
+
+      .loop-arrow::after {
+        display: none;
+      }
+
+      .loop {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* microapp gallery */
+    .gallery-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-head h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .gallery-head h3 .sage {
+      color: var(--sage);
+    }
+
+    .gallery-head p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--sub);
+      max-width: 400px;
+      margin: 0;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+
+    @media (max-width: 920px) {
+      .app-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .app {
+      background: var(--bg);
+      padding: 30px 28px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-height: 250px;
+      transition: background 0.2s ease;
+    }
+
+    .app:hover {
+      background: var(--sage-06);
+    }
+
+    .app-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .app-glyph {
+      width: 64px;
+      height: 48px;
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-glyph .line-art {
+      width: 46px;
+      height: 30px;
+      color: var(--sage);
+      opacity: 0.92;
+    }
+
+    .app-glyph.t-eat {
+      background: var(--domain-nutrition);
+    }
+
+    .app-glyph.t-rest {
+      background: var(--domain-sleep);
+    }
+
+    .app-glyph.t-move {
+      background: var(--domain-activity);
+    }
+
+    .app-glyph.t-heart {
+      background: var(--sage-12);
+    }
+
+    .app-glyph.t-mind {
+      background: var(--sand);
+    }
+
+    .app-glyph.t-gut {
+      background: var(--domain-gut);
+    }
+
+    .pill {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      border-radius: var(--r);
+      white-space: nowrap;
+    }
+
+    .pill.live {
+      background: var(--sage);
+      color: #fff;
+    }
+
+    .pill.beta {
+      background: transparent;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+    }
+
+    .pill.soon {
+      background: transparent;
+      color: var(--mute);
+      border: 1px solid var(--line-strong);
+    }
+
+    .app-body {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .app-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .app-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--sub);
+      margin: 0;
+    }
+
+    .app-foot {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .app-foot .mono {
+      font-size: 9.5px;
+    }
+
+    /* research log */
+    .log-head {
+      max-width: 680px;
+      margin-bottom: 12px;
+    }
+
+    .log-head h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+    }
+
+    .log-head h3 .sage {
+      color: var(--sage);
+    }
+
+    .log-head p {
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height: 1.6;
+      color: var(--sub);
+      margin: 0;
+    }
+
+    .log-table {
+      margin-top: 40px;
+      border-top: 1px solid var(--line-strong);
+    }
+
+    .log-colhead {
+      display: grid;
+      grid-template-columns: 132px 1fr 150px 96px;
+      gap: 24px;
+      padding: 14px 0;
+      align-items: center;
+    }
+
+    .log-row {
+      display: grid;
+      grid-template-columns: 132px 1fr 150px 96px;
+      gap: 24px;
+      padding: 26px 0;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      transition: background 0.18s ease;
+    }
+
+    .log-row:hover {
+      background: var(--sage-06);
+    }
+
+    .log-id {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.6px;
+      color: var(--sage);
+    }
+
+    .log-main .l-title {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .log-main .l-mech {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--sub);
+      margin: 5px 0 0;
+      max-width: 460px;
+    }
+
+    .log-tier {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .tier-track {
+      display: flex;
+      gap: 3px;
+    }
+
+    .tier-seg {
+      width: 16px;
+      height: 4px;
+      border-radius: 1px;
+      background: var(--line-strong);
+    }
+
+    .tier-seg.on {
+      background: var(--sage);
+    }
+
+    .log-tier .mono {
+      font-size: 9px;
+    }
+
+    .log-effect {
+      text-align: right;
+    }
+
+    .log-effect .e-val {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 1;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .log-effect .e-n {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 860px) {
+      .log-colhead {
+        display: none;
+      }
+
+      .log-row {
+        grid-template-columns: 1fr auto;
+        gap: 14px 18px;
+      }
+
+      .log-id {
+        grid-column: 1 / -1;
+      }
+
+      .log-tier {
+        grid-column: 1;
+      }
+
+      .log-effect {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .log-main {
+        grid-column: 1 / -1;
+        grid-row: 1;
+      }
+    }
+
+    .exp-sub {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 96px 0 36px;
+    }
+
+    .exp-sub .mono {
+      white-space: nowrap;
+    }
+
+    .exp-sub .rule {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="glow"></div>
-    <div class="container">
-        <img src="37degreesN.png" alt="37 Degrees North" class="logo">
-        <p class="tagline">building in an AI native world ....shh...</p>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand">37&deg;N&nbsp;Labs</a>
+      <div class="nav-links">
+        <a href="#mission" class="mono nav-link-text">Mission</a>
+        <a href="#science" class="mono nav-link-text">The Science</a>
+        <a href="#team" class="mono nav-link-text">Team</a>
+        <a href="#experiments" class="mono nav-link-text">Experiments</a>
+        <a href="#join" class="btn btn-ink btn-sm">Join early access</a>
+      </div>
     </div>
-    <div class="footer-links">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms-of-service.html">Terms of Service</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="mono sage hero-kicker">Billion Heartbeats</div>
+      <h1>end
+        generic
+        health.</h1>
     </div>
+  </header>
+
+  <!-- ═══ MISSION ═══ -->
+  <section id="mission" class="mission section-pad">
+    <div class="wrap">
+      <div class="mission-grid">
+        <div class="mission-body reveal">
+          <p>Traditional medicine optimizes for the statistical mean. The wellness industry drowns you in generic,
+            unsustainable routines. Both ignore the one variable that matters most &mdash; <strong>you</strong>.</p>
+          <p>37&deg;N Labs is building <strong>Billion Heartbeats</strong> to end generic health. We map personalized
+            protocols to first-principles cellular science &mdash; understanding exactly <em>why</em> an intervention
+            works at the protein and cellular level.</p>
+          <p class="pull">From passive patient to active author of your own health.</p>
+        </div>
+        <h2 class="reveal">Your body<br />isn&rsquo;t an<br /><span class="sage">average.</span></h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THE SCIENCE / DIAGRAM ═══ -->
+  <section id="science" class="science section-pad">
+    <div class="wrap">
+      <div class="sec-label reveal"><span class="mono">The What</span><span class="rule"></span><span
+          class="mono">02</span></div>
+      <div class="science-head reveal">
+        <h2>Science-based protocols, mapped to the outcomes that <span class="sage">actually compound.</span></h2>
+        <p>Our AI reads basic science literature across thousands of randomized controlled trials, strips away the
+          population average, and traces each result back to its first-principles cellular mechanism — then
+          re-personalizes that mechanism to you: your genetics, your lifestyle choices, your own signals. What survives
+          is the rare practice that should actually work for your biology, translated into the three outcomes you can
+          feel.</p>
+      </div>
+
+      <div class="flow reveal" id="flow">
+        <svg class="flow-links" id="flowLinks" preserveAspectRatio="none"></svg>
+
+        <!-- Inputs -->
+        <div class="flow-row inputs" id="inputsRow">
+          <div class="node">
+            <div class="n-glyph t-gen"><span class="line-art" data-art="dna"></span></div>
+            <div class="n-label">Genetics</div>
+            <div class="n-sub">The biology you were dealt.</div>
+          </div>
+          <div class="node">
+            <div class="n-glyph t-env"><span class="line-art" data-art="leaf"></span></div>
+            <div class="n-label">Environment</div>
+            <div class="n-sub">Where and how you live.</div>
+          </div>
+          <div class="node">
+            <div class="n-glyph t-soc"><span class="line-art" data-art="heart"></span></div>
+            <div class="n-label">Social</div>
+            <div class="n-sub">The people and rhythms around you.</div>
+          </div>
+          <div class="node">
+            <div class="n-glyph t-life"><span class="line-art" data-art="metabolic"></span></div>
+            <div class="n-label">Lifestyle</div>
+            <div class="n-sub">The choices you repeat each day.</div>
+          </div>
+        </div>
+
+        <div class="flow-cap"><span class="mono">Read through randomized evidence</span></div>
+
+        <!-- The lens (hub) -->
+        <div class="lens" id="lensNode">
+          <div class="lens-chain">
+            <div class="lens-node">
+              <div class="l-title">Precision Science</div>
+              <div class="l-mono mono sage">CELL &amp; DISEASE LEVEL</div>
+            </div>
+            <div class="lens-node">
+              <div class="l-title">Interventions</div>
+              <div class="l-mono mono sage">ACTIONS &amp; PROTOCOLS</div>
+            </div>
+          </div>
+          <div class="lens-tags">
+            <span class="etag"><span class="dot"></span><span class="mono">Why it works</span></span>
+            <span class="etag"><span class="dot"></span><span class="mono">Why it has unintended
+                consequences</span></span>
+          </div>
+        </div>
+
+        <div class="flow-cap"><span class="mono">Measured as</span></div>
+
+        <!-- Outcomes -->
+        <div class="flow-row outcomes" id="outcomesRow">
+          <div class="node">
+            <div class="n-glyph t-perf"><span class="line-art" data-art="runner"></span></div>
+            <div class="n-label">Performance</div>
+            <div class="n-sub">Stronger days &mdash; energy and focus now.</div>
+          </div>
+          <div class="node">
+            <div class="n-glyph t-health"><span class="line-art" data-art="heart"></span></div>
+            <div class="n-label">Healthspan</div>
+            <div class="n-sub">Better years &mdash; more time free of disease.</div>
+          </div>
+          <div class="node">
+            <div class="n-glyph t-life2"><span class="line-art" data-art="longevity"></span></div>
+            <div class="n-label">Lifespan</div>
+            <div class="n-sub">More years &mdash; slowing the biology of aging.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEAM ═══ -->
+  <section id="team" class="section-pad">
+    <div class="wrap">
+      <div class="sec-label reveal"><span class="mono">The Who</span><span class="rule"></span><span
+          class="mono">03</span></div>
+      <div class="team-head reveal">
+        <h2>A lean team,<br />by design.</h2>
+        <p>Over 15&ndash;20 years at the intersection of artificial intelligence technology, product design, and
+          engineering.</p>
+      </div>
+      <div class="team-grid reveal">
+        <div class="member">
+          <div class="avatar"><img src="assets/team/pranam.jpg" alt="Pranam Kolari" /></div>
+          <div>
+            <div class="m-name">Pranam Kolari</div>
+            <div class="m-role mono sage">Co-founder</div>
+          </div>
+          <p class="m-bio">Builds the engine — the protocol-to-cellular-mechanism mapping and the AI-native platform
+            underneath Billion Heartbeats. Two decades across search, and large-scale systems.
+            Most recently headed the engineering, search and AI team at Coupang (CPNG).</p>
+          <a class="m-link" href="https://www.linkedin.com/in/pranamkolari/" target="_blank"
+            rel="noopener">LinkedIn<span class="arr">&rarr;</span></a>
+        </div>
+        <div class="member">
+          <div class="avatar"><img src="assets/team/pree-v2.jpg" alt="Pree Kolari" /></div>
+          <div>
+            <div class="m-name">Pree Kolari</div>
+            <div class="m-role mono sage">Co-founder</div>
+          </div>
+          <p class="m-bio">Shapes the product and the experience — turning complex biology into simple, shareable
+            practices people actually keep. Deep background in product design and technology.
+            Most recently lead the design team at Klaviyo (KVYO) through 10x revenue growth and IPO. Author and Adjunct
+            professor.</p>
+          <a class="m-link" href="https://www.linkedin.com/in/kolari/" target="_blank" rel="noopener">LinkedIn<span
+              class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EXPERIMENTS ═══ -->
+  <section id="experiments" class="section-pad">
+    <div class="wrap">
+      <div class="sec-label reveal"><span class="mono">The Open Lab</span><span class="rule"></span><span
+          class="mono">04</span></div>
+      <div class="exp-head reveal">
+        <h2>Experiments,<br />in the <span class="sage">open.</span></h2>
+      </div>
+      <!-- microapp gallery -->
+      <div class="gallery-head reveal">
+        <p>Single-purpose microapps spun up from the same engine &mdash; simple to run, easy to share, honest about the
+          evidence underneath. <span class="sage">22 in development &middot; 64 in the backlog. Each a small experiment
+            you can run in a tap and share in a moment, with the cellular why always one tap away.</span></p>
+        <h3>Tiny tools, <span class="sage">one job each.</span></h3>
+      </div>
+      <div class="app-grid reveal">
+        <div class="app">
+          <div class="app-top">
+            <div class="app-glyph t-rest"><span class="line-art" data-art="moon"></span></div>
+            <span class="pill live">Live</span>
+          </div>
+          <div class="app-body">
+            <div class="app-name">Menu Buddy</div>
+            <p class="app-desc">Point the camera at a menu and get personal healthy choices to make.</p>
+          </div>
+          <div class="app-foot"><span class="mono">FOOD</span><span class="mono sage">Open &rarr;</span></div>
+        </div>
+        <div class="app">
+          <div class="app-top">
+            <div class="app-glyph t-heart"><span class="line-art" data-art="pulse"></span></div>
+            <span class="pill live">Live</span>
+          </div>
+          <div class="app-body">
+            <div class="app-name">VO2 Max game</div>
+            <p class="app-desc">Simple test to check where you are.</p>
+          </div>
+          <div class="app-foot"><span class="mono">Heart</span><span class="mono sage">Coming &rarr;</span></div>
+        </div>
+        <div class="app">
+          <div class="app-top">
+            <div class="app-glyph t-move"><span class="line-art" data-art="runner"></span></div>
+            <span class="pill beta">Beta</span>
+          </div>
+          <div class="app-body">
+            <div class="app-name">DEXA-Actions</div>
+            <p class="app-desc">First next step after you get your DEXA scan done. lets help you take action.</p>
+          </div>
+          <div class="app-foot"><span class="mono">Movement</span><span class="mono sage">Coming &rarr;</span></div>
+        </div>
+        <div class="app">
+          <div class="app-top">
+            <div class="app-glyph t-eat"><span class="line-art" data-art="metabolic"></span></div>
+            <span class="pill beta">Beta</span>
+          </div>
+          <div class="app-body">
+            <div class="app-name">Carb Buffer</div>
+            <p class="app-desc">Log a meal; get the eating order that flattens your glucose spike.</p>
+          </div>
+          <div class="app-foot"><span class="mono">Glucose</span><span class="mono sage">Open &rarr;</span></div>
+        </div>
+        <div class="app">
+          <div class="app-top">
+            <div class="app-glyph t-gut"><span class="line-art" data-art="leaf"></span></div>
+            <span class="pill live">Live</span>
+          </div>
+          <div class="app-body">
+            <div class="app-name">True or False</div>
+            <p class="app-desc">Too many youtube experts, we can help you filter the good stuff from the noise.</p>
+          </div>
+          <div class="app-foot"><span class="mono">FACT CHECK</span><span class="mono sage">Coming &rarr;</span></div>
+        </div>
+        <div class="app">
+          <div class="app-top">
+            <div class="app-glyph t-mind"><span class="line-art" data-art="neuro"></span></div>
+            <span class="pill soon">Soon</span>
+          </div>
+          <div class="app-body">
+            <div class="app-name">Ambient mood checker</div>
+            <p class="app-desc">A five-second check-in that maps how you feel against your goals.</p>
+          </div>
+          <div class="app-foot"><span class="mono">How I Feel</span><span class="mono">Coming</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA / WAITLIST ═══ -->
+  <section id="join" class="cta section-pad">
+    <div class="wrap">
+      <div class="mono">
+      </div>
+      <h2>billion heartbeats.</h2>
+      <p>Early access is opening in waves. Be among the first to run protocols matched to your own pulse.</p>
+      <form class="wl-form" id="wlForm" novalidate>
+        <input type="email" id="wlEmail" placeholder="you@email.com" autocomplete="email" aria-label="Email address" />
+        <button type="submit" class="btn btn-sage">Request access<span class="arr">&rarr;</span></button>
+      </form>
+      <div class="wl-success" id="wlSuccess">You&rsquo;re on the list. We&rsquo;ll be in touch.</div>
+      <div class="wl-note" id="wlNote">No spam. Your data stays yours &mdash; always.</div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">37&deg;N&nbsp;Labs</div>
+          <div class="footer-tag">End generic health</div>
+          <div class="footer-legal">
+            <a href="/terms">Terms of Service</a>
+            <span class="footer-legal-sep">·</span>
+            <a href="/privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="mono">Connect</span>
+            <a href="#join">Early access</a>
+            <a href="mailto:pree@37degreesN.com">Investors</a>
+            <a href="https://www.linkedin.com/company/37degreesn/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span class="mono">37&deg; North &mdash; the latitude where magic happens everyday</span>
+        <span class="mono">&copy; 2026 37&deg;N Labs</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- line-art source (cloned by JS into [data-art] slots) -->
+  <template id="__bundler_thumbnail" data-bg-color="#F7F6F2">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#F7F6F2" />
+      <path
+        d="M 120,420 C 260,410 360,430 460,420 L 520,420 L 548,330 L 588,560 L 632,180 L 690,620 L 740,90 L 798,470 L 846,400 L 900,420 C 1000,410 1080,430 1080,420"
+        fill="none" stroke="#5E6C58" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+      <text x="600" y="640" text-anchor="middle" font-family="Outfit, sans-serif" font-size="58" font-weight="500"
+        letter-spacing="-2" fill="#111111">end generic health.</text>
+    </svg>
+  </template>
+
+  <!-- line-art source (cloned by JS into [data-art] slots) -->
+  <div id="art-defs" hidden>
+    <template data-name="pulse"><svg viewBox="0 0 220 110" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M 4,62 C 22,60 40,64 56,62 C 66,62 76,62 84,62 L 92,62 L 96,52 L 102,74 L 107,30 L 114,90 L 120,8 L 127,72 L 133,56 L 140,62 C 152,60 166,64 180,62 C 194,60 208,64 216,62" />
+      </svg></template>
+    <template data-name="heart"><svg viewBox="0 0 220 110" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M 4,94 C 22,94 44,92 66,90 L 92,94 L 110,102 C 124,94 144,82 152,64 C 160,44 148,22 128,26 C 118,30 112,40 110,50 C 108,40 102,30 92,26 C 72,22 60,44 68,64 C 76,82 96,94 110,102 L 128,94 L 154,90 C 176,92 198,94 216,94" />
+      </svg></template>
+    <template data-name="runner"><svg viewBox="0 0 220 180" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M 4,168 C 20,166 32,162 40,156 C 56,144 72,124 88,100 C 96,86 104,70 112,56 C 108,38 124,22 138,28 C 152,34 148,56 130,56 C 120,56 112,54 112,56 C 126,60 146,70 164,78 C 176,82 182,70 172,66 C 164,64 166,82 176,84 C 184,84 170,80 158,80 C 144,80 126,82 118,92 C 114,104 122,118 130,132 C 138,146 148,160 158,168 C 176,172 198,170 216,168" />
+      </svg></template>
+    <template data-name="longevity"><svg viewBox="0 0 220 80" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M4,40c18,0,32.01.75,48.01.75,0-20,25.99-24.75,37.99-12.75,10,8,7.96,19.63,20,24,16.87,6.13,25.33,9.57,33.33-2.43,8-14-3.33-31.57-19.33-27.57-12,4-18,14-24,22-8,8-14,18-28,16-18-2-24-20-12-32,14-14,36,0,40,16,12,14,34,18,50,12,33.18-15.16,44-10,66-16" />
+      </svg></template>
+    <template data-name="dna"><svg viewBox="0 0 220 110" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M9.61,61.73c84.62,4.62,79.85-18.46,98.98-18.46s30.99,34.89,50.03,36.79c22.93,2.29,20.23-24.47,50.79-34.72" />
+        <path d="M75.33,61.66c17.66,0,14.13,18.39,33.26,18.39s30.9-36.79,50.03-36.79,30.9,36.79,57.38,36.79" />
+        <line x1="108.59" y1="43.26" x2="108.59" y2="80.05" />
+        <line x1="133.6" y1="43.26" x2="133.6" y2="80.05" />
+        <line x1="158.62" y1="43.26" x2="158.62" y2="80.05" />
+        <line x1="185.32" y1="46.93" x2="185.32" y2="71.31" />
+      </svg></template>
+    <template data-name="metabolic"><svg viewBox="0 0 220 140" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M 4,124 C 16,124 26,124 34,122 C 30,112 32,98 38,86 C 44,74 50,62 52,50 C 56,62 60,74 62,86 C 64,98 60,108 56,116 C 52,120 54,122 60,122 C 66,122 70,120 70,116 C 72,108 68,96 68,84 C 68,68 78,52 86,40 C 94,28 104,20 108,10 C 110,20 112,32 114,44 C 116,58 114,72 110,84 C 106,96 100,108 96,116 C 94,122 100,122 106,120 C 112,118 114,112 114,104 C 114,92 116,80 122,70 C 128,60 136,52 140,40 C 142,52 144,64 142,76 C 140,88 134,100 130,110 C 128,116 132,122 140,122 C 146,122 148,116 148,108 C 148,96 154,82 162,72 C 168,64 174,56 178,46 C 180,58 180,72 176,84 C 172,96 166,106 162,114 C 160,118 164,122 170,122 C 180,124 200,124 216,124" />
+      </svg></template>
+    <template data-name="moon"><svg viewBox="0 0 220 110" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M 4,72 L 70,72 C 60,72 50,62 50,48 C 50,30 66,16 86,16 C 104,16 116,26 120,38 C 110,28 96,28 86,36 C 76,44 74,60 84,70 C 92,76 104,76 112,70 C 112,76 102,84 90,82 C 120,78 140,72 216,72" />
+      </svg></template>
+    <template data-name="leaf"><svg viewBox="0 0 220 90" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M 4,60 L 58,60 C 66,40 88,22 114,20 C 140,18 160,28 166,38 C 158,50 140,64 116,66 C 96,66 76,62 62,58 C 88,52 124,46 156,38 L 160,60 L 216,60" />
+      </svg></template>
+    <template data-name="neuro"><svg viewBox="0 0 220 130" preserveAspectRatio="xMidYMid meet">
+        <path
+          d="M 4,98 C 24,98 44,98 58,96 C 46,92 38,80 44,68 C 38,60 44,46 56,44 C 58,32 72,24 84,30 C 88,22 98,22 102,30 C 100,18 114,16 118,28 C 124,20 138,26 138,38 C 148,36 156,46 150,56 C 160,56 166,68 158,76 C 166,80 166,92 156,96 C 150,98 146,92 148,88 C 152,96 156,104 152,108 C 146,108 138,102 136,96 C 156,96 196,98 216,98" />
+      </svg></template>
+  </div>
+
+  <script>
+    // ── Inject line-art SVGs into [data-art] slots ──────────────
+    (function () {
+      const defs = {};
+      document.querySelectorAll('#art-defs template').forEach(t => { defs[t.dataset.name] = t.innerHTML; });
+      document.querySelectorAll('[data-art]').forEach(el => {
+        const svg = defs[el.getAttribute('data-art')];
+        if (svg) el.innerHTML = svg;
+      });
+    })();
+
+    // ── Reveal on scroll ───────────────────────────────────────
+    (function () {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.16 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
+    // ── Unified flow diagram connectors (inputs → lens → outcomes) ──
+    (function () {
+      const flow = document.getElementById('flow');
+      const svg = document.getElementById('flowLinks');
+      const lens = document.getElementById('lensNode');
+      if (!flow || !svg || !lens) return;
+      const ins = [...document.querySelectorAll('#inputsRow .node')];
+      const outs = [...document.querySelectorAll('#outcomesRow .node')];
+
+      function pt(el, edge) {
+        const b = el.getBoundingClientRect();
+        const f = flow.getBoundingClientRect();
+        return {
+          x: b.left + b.width / 2 - f.left,
+          y: (edge === 'top' ? b.top : b.bottom) - f.top
+        };
+      }
+      function curve(a, b) {
+        const my = (a.y + b.y) / 2;
+        return `M ${a.x} ${a.y} C ${a.x} ${my}, ${b.x} ${my}, ${b.x} ${b.y}`;
+      }
+      function draw() {
+        const f = flow.getBoundingClientRect();
+        svg.setAttribute('viewBox', `0 0 ${f.width} ${f.height}`);
+        const top = pt(lens, 'top');
+        const bot = pt(lens, 'bottom');
+        let html = '';
+        ins.forEach(n => { html += `<path d="${curve(pt(n, 'bottom'), top)}" pathLength="1"/>`; });
+        outs.forEach(n => { html += `<path d="${curve(bot, pt(n, 'top'))}" pathLength="1"/>`; });
+        svg.innerHTML = html;
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { draw(); flow.classList.add('in'); } });
+      }, { threshold: 0.25 });
+      io.observe(flow);
+
+      let rt;
+      window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(draw, 120); });
+      window.addEventListener('load', draw);
+      setTimeout(draw, 400);
+    })();
+
+    // ── Waitlist form ──────────────────────────────────────────
+    (function () {
+      const form = document.getElementById('wlForm');
+      const email = document.getElementById('wlEmail');
+      const success = document.getElementById('wlSuccess');
+      const note = document.getElementById('wlNote');
+      if (!form) return;
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim());
+        if (!ok) { email.style.borderColor = '#FF9E00'; email.focus(); return; }
+        form.classList.add('hide');
+        success.classList.add('show');
+        note.textContent = 'Welcome to Billion Heartbeats.';
+      });
+      email.addEventListener('input', () => { email.style.borderColor = ''; });
+    })();
+
+    // ── Dot-matrix heart (ported from DotMatrixHeart.dart) ──────
+    (function () {
+      const canvas = document.getElementById('heartMatrix');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const N = 17;                 // grid resolution
+      const BREATH = 3000;          // ms per breathing cycle
+      const SAGE = getComputedStyle(document.documentElement).getPropertyValue('--sage').trim() || '#5E6C58';
+
+      // sage hex → rgb
+      const hex = SAGE.replace('#', '');
+      const R = parseInt(hex.substring(0, 2), 16);
+      const G = parseInt(hex.substring(2, 4), 16);
+      const B = parseInt(hex.substring(4, 6), 16);
+
+      // crisp on hi-dpi
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const CSS = 400;
+      canvas.width = CSS * dpr; canvas.height = CSS * dpr;
+      ctx.scale(dpr, dpr);
+
+      // heart SDF: negative inside, positive outside
+      function heartSDF(px, py) {
+        const x = px, y = -py + 0.3;
+        const x2 = x * x, y2 = y * y;
+        const a = x2 + y2 - 1.0;
+        return (a * a * a - x2 * y * y2) / 0.1;
+      }
+
+      const cellW = CSS / N, cellH = CSS / N;
+      const dotR = Math.min(cellW, cellH) * 0.28;
+      const cx = N / 2, cy = N / 2;
+      const maxDist = Math.sqrt(cx * cx + cy * cy);
+      const TAU = Math.PI * 2;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let start = null, raf = null;
+      function frame(t) {
+        if (start === null) start = t;
+        const phase = reduced ? 0.25 : ((t - start) % BREATH) / BREATH;
+        ctx.clearRect(0, 0, CSS, CSS);
+
+        for (let row = 0; row < N; row++) {
+          for (let col = 0; col < N; col++) {
+            const nx = (col / (N - 1)) * 2.2 - 1.1;
+            const ny = (row / (N - 1)) * 2.2 - 1.1;
+            const sdf = heartSDF(nx, ny);
+
+            let base;
+            if (sdf < -0.15) base = 0.85;
+            else if (sdf < 0.0) base = 0.35 + 0.50 * (-sdf / 0.15);
+            else if (sdf < 0.15) base = 0.15 * (1.0 - sdf / 0.15);
+            else continue;
+
+            const d = Math.sqrt((col - cx) ** 2 + (row - cy) ** 2) / maxDist;
+            const wavePhase = phase * TAU - d * Math.PI * 1.5;
+            const wave = 0.5 + 0.5 * Math.sin(wavePhase);
+            const opacity = Math.min(1, Math.max(0, base * (0.55 + 0.45 * wave)));
+            const scale = 0.7 + 0.3 * wave;
+
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(${R},${G},${B},${opacity})`;
+            ctx.arc(col * cellW + cellW / 2, row * cellH + cellH / 2, dotR * scale, 0, TAU);
+            ctx.fill();
+          }
+        }
+        if (!reduced) raf = requestAnimationFrame(frame);
+      }
+
+      // only animate while in view
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { if (!raf) raf = requestAnimationFrame(frame); }
+          else if (raf) { cancelAnimationFrame(raf); raf = null; start = null; }
+        });
+      }, { threshold: 0.05 });
+      io.observe(canvas);
+    })();
+  </script>
 </body>
+
 </html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>37°N — Hero Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="assets/colors_and_type.css" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; }
+
+  /* ── Hero artboard shared language ─────────────────────────── */
+  .hd { position: relative; width: 100%; height: 100%; background: var(--bg); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .hd * { box-sizing: border-box; }
+
+  .hd-mono { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: var(--mute); }
+  .hd-mono.sage { color: var(--sage); }
+
+  /* top bar */
+  .hd-bar { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 30px 48px; z-index: 5; }
+  .hd-brand { display: flex; align-items: center; gap: 12px; }
+  .hd-mark { width: 26px; height: 26px; object-fit: contain; }
+  .hd-wordmark { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: -0.3px; color: var(--ink); }
+  .hd-nav { display: flex; gap: 28px; }
+  .hd-nav a { text-decoration: none; }
+
+  .hd-cta { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; background: var(--ink); color: #fff; border-radius: var(--r); font-family: var(--font-sans); font-weight: 500; font-size: 14px; letter-spacing: 0.2px; cursor: pointer; }
+  .hd-cta.sage { background: var(--sage); }
+  .hd-cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+
+  .hd-line { color: var(--sage); opacity: 0.7; }
+  .hd-line svg { display: block; width: 100%; height: 100%; }
+  .hd-line svg path, .hd-line svg line { stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel">
+const { useState } = React;
+
+// ── continuous-line motifs (inline so they inherit currentColor) ──
+const PulseLine = () => (
+  <svg viewBox="0 0 220 110" preserveAspectRatio="none">
+    <path d="M 4,62 C 22,60 40,64 56,62 C 66,62 76,62 84,62 L 92,62 L 96,52 L 102,74 L 107,30 L 114,90 L 120,8 L 127,72 L 133,56 L 140,62 C 152,60 166,64 180,62 C 194,60 208,64 216,62" />
+  </svg>
+);
+const LongevityLine = () => (
+  <svg viewBox="0 0 220 80">
+    <path d="M4,40c18,0,32.01.75,48.01.75,0-20,25.99-24.75,37.99-12.75,10,8,7.96,19.63,20,24,16.87,6.13,25.33,9.57,33.33-2.43,8-14-3.33-31.57-19.33-27.57-12,4-18,14-24,22-8,8-14,18-28,16-18-2-24-20-12-32,14-14,36,0,40,16,12,14,34,18,50,12,33.18-15.16,44-10,66-16" />
+  </svg>
+);
+const DnaLine = () => (
+  <svg viewBox="0 0 220 110">
+    <path d="M9.61,61.73c84.62,4.62,79.85-18.46,98.98-18.46s30.99,34.89,50.03,36.79c22.93,2.29,20.23-24.47,50.79-34.72" />
+    <path d="M75.33,61.66c17.66,0,14.13,18.39,33.26,18.39s30.9-36.79,50.03-36.79,30.9,36.79,57.38,36.79" />
+    <line x1="108.59" y1="43.26" x2="108.59" y2="80.05" />
+    <line x1="133.6" y1="43.26" x2="133.6" y2="80.05" />
+    <line x1="158.62" y1="43.26" x2="158.62" y2="80.05" />
+    <line x1="185.32" y1="46.93" x2="185.32" y2="71.31" />
+  </svg>
+);
+
+const Bar = ({ cta = 'dark' }) => (
+  <div className="hd-bar">
+    <div className="hd-brand">
+      <span className="hd-wordmark">37&deg;N Labs</span>
+    </div>
+    <div className="hd-nav">
+      <span className="hd-mono">Mission</span>
+      <span className="hd-mono">The Science</span>
+      <span className="hd-mono">Team</span>
+      <span className="hd-mono">Experiments</span>
+    </div>
+  </div>
+);
+
+// ════════════════════════════════════════════════════════════
+// A — TYPE WALL  (the boldest manifesto)
+// ════════════════════════════════════════════════════════════
+const HeroA = () => (
+  <div className="hd">
+    <Bar />
+    <div style={{ position: 'absolute', top: 132, left: 48, right: 48 }}>
+      <div className="hd-mono sage" style={{ marginBottom: 26 }}>Billion Heartbeats</div>
+      <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 132, lineHeight: 0.92, letterSpacing: '-4px', margin: 0, color: 'var(--ink)' }}>
+        End<br />
+        <span style={{ color: 'var(--sage)' }}>generic</span><br />
+        health.
+      </h1>
+    </div>
+    <div style={{ position: 'absolute', bottom: 54, left: 48, right: 48, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 40 }}>
+      <p style={{ fontFamily: 'var(--font-sans)', fontSize: 19, lineHeight: 1.55, color: 'var(--sub)', maxWidth: 440, margin: 0 }}>
+        One-size-fits-all advice is a relic. We map personalized protocols to first-principles cellular science — so you know exactly <em>why</em> something works for <em>your</em> body.
+      </p>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 18 }}>
+        <div className="hd-line" style={{ width: 320, height: 56 }}><PulseLine /></div>
+        <div className="hd-cta sage">Join early access<span>&rarr;</span></div>
+      </div>
+    </div>
+  </div>
+);
+
+// ════════════════════════════════════════════════════════════
+// B — SPLIT  (product-forward conviction: statement + live signals)
+// ════════════════════════════════════════════════════════════
+const Tick = ({ label, value }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingTop: 16, borderTop: '1px solid var(--line)' }}>
+    <span className="hd-mono">{label}</span>
+    <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 38, lineHeight: 1, color: 'var(--ink)' }}>{value}</span>
+  </div>
+);
+const HeroB = () => (
+  <div className="hd">
+    <Bar />
+    <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, display: 'grid', gridTemplateColumns: '1.05fr 0.95fr' }}>
+      <div style={{ padding: '150px 56px 54px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div>
+          <div className="hd-mono sage" style={{ marginBottom: 28 }}>The Mission</div>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 76, lineHeight: 1.0, letterSpacing: '-2px', margin: 0, color: 'var(--ink)' }}>
+            One body.<br />Not the<br /><span style={{ color: 'var(--sage)' }}>average.</span>
+          </h1>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 18, lineHeight: 1.6, color: 'var(--sub)', maxWidth: 420, marginTop: 30 }}>
+            Medicine optimizes for the population. We optimize for the person — protocols tuned to your data, your rhythm, your cells.
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: 16 }}>
+          <div className="hd-cta sage">Join early access<span>&rarr;</span></div>
+          <div className="hd-cta ghost">Read the science</div>
+        </div>
+      </div>
+      <div style={{ position: 'relative', background: 'var(--surface-solid)', borderLeft: '1px solid var(--line)', padding: '150px 56px 54px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div className="hd-line" style={{ color: 'var(--sage)', opacity: 0.55, width: '100%', height: 150 }}><DnaLine /></div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px 36px' }}>
+          <Tick label="Deep sleep" value="+12%" />
+          <Tick label="Glucose spike" value="&minus;18%" />
+          <Tick label="Protocols mapped" value="220+" />
+          <Tick label="Study n" value="1,284" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// ════════════════════════════════════════════════════════════
+// C — COVER  (editorial monument, centered, full-bleed pulse)
+// ════════════════════════════════════════════════════════════
+const HeroC = () => (
+  <div className="hd">
+    <Bar />
+    <div className="hd-line" style={{ position: 'absolute', top: '50%', left: 0, right: 0, height: 220, transform: 'translateY(-50%)', opacity: 0.16, color: 'var(--sage)' }}><PulseLine /></div>
+    <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 48px' }}>
+      <div className="hd-mono" style={{ marginBottom: 30 }}>Vol. 01 &nbsp;·&nbsp; End Generic Health &nbsp;·&nbsp; 37&deg;N</div>
+      <h1 style={{ fontFamily: 'var(--font-display)', fontWeight: 500, fontSize: 92, lineHeight: 1.0, letterSpacing: '-3px', margin: 0, color: 'var(--ink)' }}>
+        Health, tuned<br />to your <span style={{ color: 'var(--sage)' }}>pulse.</span>
+      </h1>
+      <p style={{ fontFamily: 'var(--font-sans)', fontSize: 19, lineHeight: 1.6, color: 'var(--sub)', maxWidth: 540, marginTop: 30 }}>
+        Science-based protocols mapped to first-principles cellular biology. From passive patient to active author of your own health.
+      </p>
+      <div className="hd-cta sage" style={{ marginTop: 36 }}>Join early access<span>&rarr;</span></div>
+    </div>
+    <div className="hd-mono" style={{ position: 'absolute', bottom: 40, left: 0, right: 0, textAlign: 'center' }}>37&deg; North &nbsp;—&nbsp; the latitude of a living thing</div>
+  </div>
+);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <DesignCanvas>
+    <DCSection id="heroes" title="37°N — Hero / Mission directions" subtitle="Manifesto tone · pick one (or mix). Click any board to focus fullscreen.">
+      <DCArtboard id="a" label="A · Type Wall" width={1280} height={760}><HeroA /></DCArtboard>
+      <DCArtboard id="b" label="B · Split — statement + signals" width={1280} height={760}><HeroB /></DCArtboard>
+      <DCArtboard id="c" label="C · Editorial Cover" width={1280} height={760}><HeroC /></DCArtboard>
+    </DCSection>
+  </DesignCanvas>
+);
+</script>
+</body>
+</html>

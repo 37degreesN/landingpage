@@ -1,0 +1,205 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   LIVE YOUR BEATS — Design System Foundations
+   "Clinical Evolution" aesthetic
+   Source of truth: lib/core/theme/design_tokens.dart + app_theme.dart
+   ───────────────────────────────────────────────────────────────────────
+   Load fonts before this file:
+   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Type families ───────────────────────────────────────────────── */
+  --font-display: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif; /* headers, numbers */
+  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;            /* body */
+  --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;               /* metadata caps labels */
+
+  /* ── Core palette ────────────────────────────────────────────────── */
+  --bg:           #FFFFFF;  /* canvas — always white, no cards */
+  --surface:      #FFFFFF;
+  --surface-solid:#FAFAFA;  /* near-white wells */
+
+  --ink:          #111111;  /* primary text */
+  --sub:          #545454;  /* body / secondary text */
+  --mute:         #9A968E;  /* metadata labels, disabled (warm grey) */
+  --faded:        #BBB9B4;  /* quaternary, captions */
+
+  --line:         #EAEAE6;  /* 1px hairline dividers + borders */
+  --line-strong:  #C8C8C2;  /* stronger hairline */
+
+  /* ── Accent — Sage ───────────────────────────────────────────────── */
+  --sage:         #5E6C58;  /* PRIMARY accent — links, active, progress */
+  --sage-mid:     #8A9A84;  /* secondary accent */
+  --sage-12:      rgba(94, 108, 88, 0.12); /* muted fill */
+  --sage-06:      rgba(94, 108, 88, 0.06); /* faint wash / selection */
+
+  /* ── Domain tints — blob fills & data fills ──────────────────────── */
+  --domain-sleep:    #C8D2C2;  /* sage-soft */
+  --domain-activity: #BFCDB8;  /* sage-mid tint */
+  --domain-nutrition:#E6D3BE;  /* sand — glucose / eating */
+  --domain-gut:      #D4C5D2;  /* mauve — gut / microbiome */
+  --sand:            #D4C3A8;  /* warm sand alt */
+
+  /* ── Semantic — note: destructive is NEVER filled red ────────────── */
+  --success:      #5E6C58;  /* sage */
+  --destructive:  #5E6C58;  /* sage outline, never red fill */
+  --warning:      #FF9E00;  /* amber — used sparingly */
+
+  /* ── Radii — max 4px (circles only for blobs/avatars) ────────────── */
+  --r-hairline: 2px;
+  --r:          4px;   /* the card / button radius. NEVER exceed for rects */
+  --r-full:     999px; /* blobs, avatars, pills only */
+
+  /* ── Spacing scale (px) ──────────────────────────────────────────── */
+  --sp-xxs: 2px;
+  --sp-xs:  4px;
+  --sp-sm:  8px;
+  --sp-md:  12px;
+  --sp-lg:  16px;
+  --sp-xl:  20px;
+  --sp-2xl: 24px;
+  --sp-3xl: 32px;
+
+  /* ── Tracking ────────────────────────────────────────────────────── */
+  --track-display: -0.4px;  /* tight on display */
+  --track-mono:    1.2px;   /* loose on mono caps */
+
+  /* ── Elevation — FLAT. Shadows are intentionally absent. ──────────── */
+  --shadow: none;
+  --scrim:  rgba(0, 0, 0, 0.40);
+
+  /* ── Glass blur levels (used on overlays / FAB sheets) ───────────── */
+  --blur-subtle:   14px;
+  --blur-standard: 20px;
+  --blur-elevated: 24px;
+  --blur-hero:     32px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SEMANTIC TYPE STYLES
+   Display → Outfit 500.  Body → Inter 400.  Metadata → mono caps.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.lyb-page-title {        /* screen header — "Health Timeline" */
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.lyb-hero {              /* hero statement — "Five practices match your rhythm" */
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.lyb-h1 {                /* headlineLarge */
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.lyb-h2 {                /* headlineMedium / card title */
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: var(--ink);
+}
+
+.lyb-h3 {                /* titleLarge */
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  color: var(--ink);
+}
+
+.lyb-h4 {                /* titleMedium / list item title */
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  color: var(--ink);
+}
+
+.lyb-section-header {    /* dashboard section header */
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lyb-body {              /* bodyLarge */
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--sub);
+}
+
+.lyb-body-sm {           /* bodyMedium */
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--sub);
+}
+
+.lyb-caption {           /* small caption / source */
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--faded);
+}
+
+.lyb-mono {              /* metadata caps — "DAY 8 / 14", "72 BPM RESTING" */
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lyb-mono-sage {         /* mono, sage — streaks / active states */
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.lyb-label {             /* card label — "HEART RATE", "SLEEP" */
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.lyb-value {             /* large numeric — "8,432", "72" */
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.lyb-metric {            /* extra-large metric value — "48" thin */
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink);
+}
+
