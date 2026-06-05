@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0W3M46D023"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-0W3M46D023');
   </script>
@@ -1144,7 +1144,6 @@
   <!-- ═══ HERO ═══ -->
   <header class="hero">
     <div class="wrap">
-      <div class="mono sage hero-kicker">Billion Heartbeats</div>
       <h1>end
         generic
         health.</h1>
@@ -1156,10 +1155,11 @@
     <div class="wrap">
       <div class="mission-grid">
         <div class="mission-body reveal">
-          <p>Traditional medicine optimizes for the statistical mean. The wellness industry drowns you in generic,
-            unsustainable routines. Both ignore the one variable that matters most &mdash; <strong>you</strong>.</p>
+          <p>Traditional medicine optimizes for easy insurance process not health outcomes. The wellness industry drowns
+            you in generic,
+            unsustainable routines. Both ignore the one variable that matters most <strong>you</strong>.</p>
           <p>37&deg;N Labs is building <strong>Billion Heartbeats</strong> to end generic health. We map personalized
-            protocols to first-principles cellular science &mdash; understanding exactly <em>why</em> an intervention
+            protocols to first-principles cellular science: understanding exactly <em>why</em> an intervention
             works at the protein and cellular level.</p>
           <p class="pull">From passive patient to active author of your own health.</p>
         </div>
@@ -1546,18 +1546,41 @@
 
     // ── Waitlist form ──────────────────────────────────────────
     (function () {
+      const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwa-GRGZWaFRFLFzaaKTqA2vpnOOLBJpWpbgK4tBJ9Pb9qBbzLNPeExtx9RPNPVVvim/exec';
+
       const form = document.getElementById('wlForm');
       const email = document.getElementById('wlEmail');
       const success = document.getElementById('wlSuccess');
       const note = document.getElementById('wlNote');
+      const btn = form ? form.querySelector('button') : null;
       if (!form) return;
-      form.addEventListener('submit', (e) => {
+
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim());
+        const val = email.value.trim();
+        const ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(val);
         if (!ok) { email.style.borderColor = '#FF9E00'; email.focus(); return; }
-        form.classList.add('hide');
-        success.classList.add('show');
-        note.textContent = 'Welcome to Billion Heartbeats.';
+
+        // loading state
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        try {
+          await fetch(SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: val, timestamp: new Date().toISOString() })
+          });
+          form.classList.add('hide');
+          success.classList.add('show');
+          note.textContent = 'Welcome to Billion Heartbeats.';
+        } catch (err) {
+          btn.disabled = false;
+          btn.innerHTML = 'Request access<span class="arr">&rarr;</span>';
+          note.textContent = 'Something went wrong — please try again.';
+          note.style.color = '#FF9E00';
+        }
       });
       email.addEventListener('input', () => { email.style.borderColor = ''; });
     })();
