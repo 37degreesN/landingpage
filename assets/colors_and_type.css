@@ -9,7 +9,7 @@
 
 :root {
   /* ── Type families ───────────────────────────────────────────────── */
-  --font-display: "Fraunces", "Open Sans", ui-serif, Georgia, serif;       /* headers, numbers */
+  --font-display: Georgia, "Times New Roman", Times, ui-serif, serif;       /* headers, numbers */
   --font-sans:    "Open Sans", ui-sans-serif, system-ui, sans-serif;       /* body */
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;               /* metadata caps labels */
 
