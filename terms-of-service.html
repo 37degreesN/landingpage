@@ -1,216 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - 37 Degrees North</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: #e8e8e8;
-            min-height: 100vh;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-            animation: fadeIn 0.8s ease-out;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — 37°N Labs</title>
+  <meta name="description" content="Terms of Service for Protocols from 37°N. Read the terms governing your use of our website and application." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="assets/colors_and_type.css" rel="stylesheet" />
+  <link href="site.css" rel="stylesheet" />
+  <style>
+    /* ── Legal page layout ─────────────────────────────────── */
+    .legal-hero {
+      padding: 48px 0 0;
+      border-bottom: 1px solid var(--line);
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        h2 {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #fff;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        li {
-            margin-bottom: 5px;
-        }
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
 
-        strong {
-            color: #fff;
-            font-weight: 500;
-        }
-        
-        a {
-            color: #7878ff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-            color: #9898ff;
-        }
-        
-        .glow {
-            position: fixed;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(120, 120, 255, 0.15) 0%, rgba(80, 80, 200, 0.05) 40%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: #7878ff;
-            font-size: 14px;
-            font-weight: 500;
-        }
+    .legal-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--mute);
+      padding-bottom: 48px;
+    }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-        }
-    </style>
+    .legal-body {
+      max-width: 720px;
+      padding: 64px 0 120px;
+    }
+
+    .legal-body h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(20px, 2.5vw, 26px);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .legal-body h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .legal-body p {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--sub);
+      margin: 0 0 16px;
+    }
+
+    .legal-body ul {
+      margin: 0 0 16px 20px;
+      padding: 0;
+    }
+
+    .legal-body li {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--sub);
+      margin-bottom: 6px;
+    }
+
+    .legal-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .legal-body a {
+      color: var(--sage);
+      transition: color 0.15s;
+    }
+
+    .legal-body a:hover {
+      color: var(--ink);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 32px;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover {
+      color: var(--ink);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="glow"></div>
-    <div class="container">
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
-        
-        <h1>Terms of Service</h1>
-        <p><strong>Protocols from 37°N</strong><br>
-        <strong>Last updated:</strong> April 9, 2026</p>
-        
-        <p>Welcome to Protocols from 37°N. These Terms of Service ("Terms") govern your access to and use of the Protocols from 37°N website, application, and related services (collectively, the "Service"). Please read them carefully. By creating an account or using the Service, you agree to these Terms.</p>
-        
-        <h2>1. Who We Are</h2>
-        <p>The Service is operated by Protocols from 37°N ("we," "us," or "our"). You can contact us at <strong>support@37degreesn.com</strong>.</p>
-        
-        <h2>2. Eligibility</h2>
-        <p>You must be at least 16 years old to use the Service. By using the Service, you represent that you meet this requirement and that you have the legal capacity to enter into these Terms.</p>
-        
-        <h2>3. Your Account</h2>
-        <p>To use most features of the Service, you must create an account. You agree to:</p>
-        <ul>
-            <li>Provide accurate, current, and complete information.</li>
-            <li>Keep your login credentials confidential.</li>
-            <li>Notify us promptly at <strong>support@37degreesn.com</strong> if you suspect unauthorized access to your account.</li>
-        </ul>
-        <p>You are responsible for all activity that occurs under your account.</p>
-        
-        <h2>4. The Service</h2>
-        <p>Protocols from 37°N is a personal health tracking and self-experimentation tool. It helps you log, organize, and reflect on data you generate about yourself, including data synced from connected devices and information you enter manually.</p>
-        <p>We may update, improve, or modify the Service from time to time. We may also add, change, or remove features. We will give reasonable notice of material changes that affect how you use the Service.</p>
-        
-        <h2>5. Not Medical Advice</h2>
-        <p><strong>The Service is not a medical device, and we are not your doctor.</strong> The content, insights, charts, and protocols provided through the Service are for informational and self-tracking purposes only. They are not medical advice, diagnosis, or treatment.</p>
-        <p>Always seek the advice of a qualified healthcare professional with any questions you have about a medical condition or before starting, stopping, or changing any health regimen, supplement, medication, or exercise program. Never disregard professional medical advice or delay seeking it because of something you read in the Service.</p>
-        <p>If you think you may have a medical emergency, call your doctor or emergency services immediately.</p>
-        
-        <h2>6. Your Content</h2>
-        <p>You retain ownership of all data, journal entries, protocols, and other content you create or upload to the Service ("Your Content"). You grant us a limited, worldwide, non-exclusive, royalty-free license to host, store, process, and display Your Content solely as needed to operate and improve the Service for you.</p>
-        <p>We will not use Your Content for any purpose other than providing the Service to you, except in anonymized and aggregated form, and only as described in our Privacy Policy.</p>
-        
-        <h2>7. Acceptable Use</h2>
-        <p>You agree not to:</p>
-        <ul>
-            <li>Use the Service for any unlawful purpose or in violation of any applicable laws.</li>
-            <li>Attempt to access, tamper with, or disrupt any part of the Service or its underlying infrastructure.</li>
-            <li>Reverse engineer, decompile, or attempt to extract source code, except as permitted by applicable law.</li>
-            <li>Use the Service to harm, harass, or impersonate others.</li>
-            <li>Upload content that infringes intellectual property rights, contains malware, or is otherwise unlawful.</li>
-            <li>Use automated means (bots, scrapers) to access the Service except as expressly permitted.</li>
-        </ul>
-        <p>We may suspend or terminate accounts that violate these rules.</p>
-        
-        <h2>8. Third-Party Integrations</h2>
-        <p>The Service may allow you to connect third-party devices, apps, or services (e.g., wearables, health platforms). Your use of those third parties is governed by their own terms and privacy policies. We are not responsible for their content, practices, or availability.</p>
-        
-        <h2>9. Privacy</h2>
-        <p>Your privacy matters to us. Our <a href="privacy-policy.html">Privacy Policy</a> explains what information we collect, how we use it, and your rights regarding that information. By using the Service, you agree to the Privacy Policy.</p>
-        
-        <h2>10. Intellectual Property</h2>
-        <p>The Service, including its software, design, trademarks, and content (other than Your Content), is owned by Protocols from 37°N or our licensors and is protected by intellectual property laws. We grant you a limited, personal, non-transferable, non-exclusive license to use the Service in accordance with these Terms.</p>
-        
-        <h2>11. Fees and Subscriptions</h2>
-        <p>Some features of the Service may be offered as paid subscriptions. If you purchase a subscription, the applicable fees, billing cycle, and cancellation terms will be presented at the time of purchase. Unless otherwise stated, fees are non-refundable except where required by law.</p>
-        
-        <h2>12. Termination</h2>
-        <p>You may stop using the Service and delete your account at any time from within the app. We may suspend or terminate your access if you violate these Terms or if we are required to do so by law. Upon termination, your data will be handled as described in our Privacy Policy.</p>
-        
-        <h2>13. Disclaimers</h2>
-        <p><strong>The Service is provided "as is" and "as available" without warranties of any kind</strong>, whether express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, or uninterrupted availability. We do not warrant that the Service will be error-free or that any insights generated are accurate or appropriate for your situation.</p>
-        
-        <h2>14. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, in no event will Protocols from 37°N, its affiliates, or its team members be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, revenue, data, or goodwill, arising out of or related to your use of the Service. Our total liability for any claim arising under these Terms will not exceed the greater of (a) the amount you paid us in the 12 months before the claim arose, or (b) US $100.</p>
-        <p>Some jurisdictions do not allow certain limitations of liability, so some of the above may not apply to you.</p>
-        
-        <h2>15. Indemnification</h2>
-        <p>You agree to defend, indemnify, and hold harmless Protocols from 37°N from any claims, damages, liabilities, costs, or expenses (including reasonable attorneys' fees) arising out of your violation of these Terms or your misuse of the Service.</p>
-        
-        <h2>16. Changes to These Terms</h2>
-        <p>We may update these Terms from time to time. If we make material changes, we will notify you in the app or by email before they take effect. Your continued use of the Service after the changes take effect constitutes acceptance of the updated Terms.</p>
-        
-        <h2>17. Governing Law and Disputes</h2>
-        <p>These Terms are governed by the laws of the jurisdiction in which Protocols from 37°N is established, without regard to its conflict-of-laws principles. Any disputes will be resolved in the courts of that jurisdiction, unless local consumer protection laws give you the right to bring a claim in your home jurisdiction.</p>
-        
-        <h2>18. Contact</h2>
-        <p>If you have any questions about these Terms, please reach out at <strong>support@37degreesn.com</strong>.</p>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand">37&deg;N&nbsp;Labs</a>
+      <div class="nav-links">
+        <a href="index.html#mission" class="mono nav-link-text">Mission</a>
+        <a href="index.html#science" class="mono nav-link-text">The Science</a>
+        <a href="index.html#team" class="mono nav-link-text">Team</a>
+        <a href="index.html#experiments" class="mono nav-link-text">Experiments</a>
+        <a href="index.html#join" class="btn btn-ink btn-sm">Join early access</a>
+      </div>
     </div>
+  </nav>
+
+  <!-- ═══ LEGAL HERO ═══ -->
+  <header class="legal-hero">
+    <div class="wrap">
+      <a href="index.html" class="back-link">&larr; Back to Home</a>
+      <h1>Terms of Service</h1>
+      <div class="legal-meta">Protocols from 37°N &mdash; Last updated: April 9, 2026</div>
+    </div>
+  </header>
+
+  <!-- ═══ LEGAL BODY ═══ -->
+  <main class="legal-body">
+    <div class="wrap">
+      <p>Welcome to Protocols from 37°N. These Terms of Service ("Terms") govern your access to and use of the Protocols from 37°N website, application, and related services (collectively, the "Service"). Please read them carefully. By creating an account or using the Service, you agree to these Terms.</p>
+
+      <h2>1. Who We Are</h2>
+      <p>The Service is operated by Protocols from 37°N ("we," "us," or "our"). You can contact us at <strong>support@37degreesn.com</strong>.</p>
+
+      <h2>2. Eligibility</h2>
+      <p>You must be at least 16 years old to use the Service. By using the Service, you represent that you meet this requirement and that you have the legal capacity to enter into these Terms.</p>
+
+      <h2>3. Your Account</h2>
+      <p>To use most features of the Service, you must create an account. You agree to:</p>
+      <ul>
+        <li>Provide accurate, current, and complete information.</li>
+        <li>Keep your login credentials confidential.</li>
+        <li>Notify us promptly at <strong>support@37degreesn.com</strong> if you suspect unauthorized access to your account.</li>
+      </ul>
+      <p>You are responsible for all activity that occurs under your account.</p>
+
+      <h2>4. The Service</h2>
+      <p>Protocols from 37°N is a personal health tracking and self-experimentation tool. It helps you log, organize, and reflect on data you generate about yourself, including data synced from connected devices and information you enter manually.</p>
+      <p>We may update, improve, or modify the Service from time to time. We may also add, change, or remove features. We will give reasonable notice of material changes that affect how you use the Service.</p>
+
+      <h2>5. Not Medical Advice</h2>
+      <p><strong>The Service is not a medical device, and we are not your doctor.</strong> The content, insights, charts, and protocols provided through the Service are for informational and self-tracking purposes only. They are not medical advice, diagnosis, or treatment.</p>
+      <p>Always seek the advice of a qualified healthcare professional with any questions you have about a medical condition or before starting, stopping, or changing any health regimen, supplement, medication, or exercise program. Never disregard professional medical advice or delay seeking it because of something you read in the Service.</p>
+      <p>If you think you may have a medical emergency, call your doctor or emergency services immediately.</p>
+
+      <h2>6. Your Content</h2>
+      <p>You retain ownership of all data, journal entries, protocols, and other content you create or upload to the Service ("Your Content"). You grant us a limited, worldwide, non-exclusive, royalty-free license to host, store, process, and display Your Content solely as needed to operate and improve the Service for you.</p>
+      <p>We will not use Your Content for any purpose other than providing the Service to you, except in anonymized and aggregated form, and only as described in our Privacy Policy.</p>
+
+      <h2>7. Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the Service for any unlawful purpose or in violation of any applicable laws.</li>
+        <li>Attempt to access, tamper with, or disrupt any part of the Service or its underlying infrastructure.</li>
+        <li>Reverse engineer, decompile, or attempt to extract source code, except as permitted by applicable law.</li>
+        <li>Use the Service to harm, harass, or impersonate others.</li>
+        <li>Upload content that infringes intellectual property rights, contains malware, or is otherwise unlawful.</li>
+        <li>Use automated means (bots, scrapers) to access the Service except as expressly permitted.</li>
+      </ul>
+      <p>We may suspend or terminate accounts that violate these rules.</p>
+
+      <h2>8. Third-Party Integrations</h2>
+      <p>The Service may allow you to connect third-party devices, apps, or services (e.g., wearables, health platforms). Your use of those third parties is governed by their own terms and privacy policies. We are not responsible for their content, practices, or availability.</p>
+
+      <h2>9. Privacy</h2>
+      <p>Your privacy matters to us. Our <a href="privacy-policy.html">Privacy Policy</a> explains what information we collect, how we use it, and your rights regarding that information. By using the Service, you agree to the Privacy Policy.</p>
+
+      <h2>10. Intellectual Property</h2>
+      <p>The Service, including its software, design, trademarks, and content (other than Your Content), is owned by Protocols from 37°N or our licensors and is protected by intellectual property laws. We grant you a limited, personal, non-transferable, non-exclusive license to use the Service in accordance with these Terms.</p>
+
+      <h2>11. Fees and Subscriptions</h2>
+      <p>Some features of the Service may be offered as paid subscriptions. If you purchase a subscription, the applicable fees, billing cycle, and cancellation terms will be presented at the time of purchase. Unless otherwise stated, fees are non-refundable except where required by law.</p>
+
+      <h2>12. Termination</h2>
+      <p>You may stop using the Service and delete your account at any time from within the app. We may suspend or terminate your access if you violate these Terms or if we are required to do so by law. Upon termination, your data will be handled as described in our Privacy Policy.</p>
+
+      <h2>13. Disclaimers</h2>
+      <p><strong>The Service is provided "as is" and "as available" without warranties of any kind</strong>, whether express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, or uninterrupted availability. We do not warrant that the Service will be error-free or that any insights generated are accurate or appropriate for your situation.</p>
+
+      <h2>14. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, in no event will Protocols from 37°N, its affiliates, or its team members be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, revenue, data, or goodwill, arising out of or related to your use of the Service. Our total liability for any claim arising under these Terms will not exceed the greater of (a) the amount you paid us in the 12 months before the claim arose, or (b) US $100.</p>
+      <p>Some jurisdictions do not allow certain limitations of liability, so some of the above may not apply to you.</p>
+
+      <h2>15. Indemnification</h2>
+      <p>You agree to defend, indemnify, and hold harmless Protocols from 37°N from any claims, damages, liabilities, costs, or expenses (including reasonable attorneys' fees) arising out of your violation of these Terms or your misuse of the Service.</p>
+
+      <h2>16. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. If we make material changes, we will notify you in the app or by email before they take effect. Your continued use of the Service after the changes take effect constitutes acceptance of the updated Terms.</p>
+
+      <h2>17. Governing Law and Disputes</h2>
+      <p>These Terms are governed by the laws of the jurisdiction in which Protocols from 37°N is established, without regard to its conflict-of-laws principles. Any disputes will be resolved in the courts of that jurisdiction, unless local consumer protection laws give you the right to bring a claim in your home jurisdiction.</p>
+
+      <h2>18. Contact</h2>
+      <p>If you have any questions about these Terms, please reach out at <strong>support@37degreesn.com</strong>.</p>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">37&deg;N&nbsp;Labs</div>
+          <div class="footer-tag">End generic health</div>
+          <div class="footer-legal">
+            <a href="terms-of-service.html">Terms of Service</a>
+            <span class="footer-legal-sep">·</span>
+            <a href="privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="mono">Connect</span>
+            <a href="index.html#join">Early access</a>
+            <a href="mailto:pree@37degreesN.com">Investors</a>
+            <a href="https://www.linkedin.com/company/37degreesn/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span class="mono">&copy; 2026 37&deg; North &mdash; home of the unconventional</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
+
 </html>

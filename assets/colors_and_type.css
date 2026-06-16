@@ -4,13 +4,13 @@
    Source of truth: lib/core/theme/design_tokens.dart + app_theme.dart
    ───────────────────────────────────────────────────────────────────────
    Load fonts before this file:
-   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
   /* ── Type families ───────────────────────────────────────────────── */
-  --font-display: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif; /* headers, numbers */
-  --font-sans:    "Inter", ui-sans-serif, system-ui, sans-serif;            /* body */
+  --font-display: "Fraunces", "Open Sans", ui-serif, Georgia, serif;       /* headers, numbers */
+  --font-sans:    "Open Sans", ui-sans-serif, system-ui, sans-serif;       /* body */
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;               /* metadata caps labels */
 
   /* ── Core palette ────────────────────────────────────────────────── */

@@ -1,207 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - 37 Degrees North</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: #e8e8e8;
-            min-height: 100vh;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 1;
-            animation: fadeIn 0.8s ease-out;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — 37°N Labs</title>
+  <meta name="description" content="Privacy Policy for Protocols from 37°N. Learn how we collect, use, store, and protect your information." />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link href="assets/colors_and_type.css" rel="stylesheet" />
+  <link href="site.css" rel="stylesheet" />
+  <style>
+    /* ── Legal page layout ─────────────────────────────────── */
+    .legal-hero {
+      padding: 48px 0 0;
+      border-bottom: 1px solid var(--line);
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        h2 {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #fff;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        li {
-            margin-bottom: 5px;
-        }
+    .legal-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
 
-        strong {
-            color: #fff;
-            font-weight: 500;
-        }
-        
-        a {
-            color: #7878ff;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-            color: #9898ff;
-        }
-        
-        .glow {
-            position: fixed;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(120, 120, 255, 0.15) 0%, rgba(80, 80, 200, 0.05) 40%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: #7878ff;
-            font-size: 14px;
-            font-weight: 500;
-        }
+    .legal-meta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--mute);
+      padding-bottom: 48px;
+    }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-        }
-    </style>
+    .legal-body {
+      max-width: 720px;
+      padding: 64px 0 120px;
+    }
+
+    .legal-body h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(20px, 2.5vw, 26px);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 48px 0 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .legal-body h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .legal-body p {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--sub);
+      margin: 0 0 16px;
+    }
+
+    .legal-body ul {
+      margin: 0 0 16px 20px;
+      padding: 0;
+    }
+
+    .legal-body li {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--sub);
+      margin-bottom: 6px;
+    }
+
+    .legal-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .legal-body a {
+      color: var(--sage);
+      transition: color 0.15s;
+    }
+
+    .legal-body a:hover {
+      color: var(--ink);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 32px;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover {
+      color: var(--ink);
+    }
+  </style>
 </head>
+
 <body>
-    <div class="glow"></div>
-    <div class="container">
-        <a href="index.html" class="back-link">&larr; Back to Home</a>
-        
-        <h1>Privacy Policy</h1>
-        <p><strong>Protocols from 37°N</strong><br>
-        <strong>Last updated:</strong> April 9, 2026</p>
-        
-        <p>This Privacy Policy explains how Protocols from 37°N ("we," "us," or "our") collects, uses, stores, and protects information when you use our website and application (collectively, the "Service"). We take your privacy — and especially the sensitivity of health information — seriously.</p>
-        
-        <p>By using the Service, you agree to the practices described in this Privacy Policy.</p>
-        
-        <h2>1. Who We Are</h2>
-        <p>Protocols from 37°N provides a personal health tracking and self-experimentation tool that helps you collect, organize, and learn from your own health data. If you have questions about this policy or your data, contact us at <strong>privacy@37degreesn.com</strong>.</p>
-        
-        <h2>2. Information We Collect</h2>
-        <p><strong>Account information.</strong> When you create an account, we collect your name, email address, and authentication credentials.</p>
-        
-        <p><strong>Health and wellness data.</strong> With your permission, we collect data you sync from connected devices or log manually, including: steps, heart rate, sleep, heart rate variability (HRV), weight, mood, hydration, stool, medication, and journal entries. We also store the experiments and protocols you create within the Service.</p>
-        
-        <p><strong>Usage data.</strong> We collect basic technical information about how you interact with the Service, such as device type, operating system, app version, crash logs, and timestamps of activity. This helps us keep the Service stable and secure.</p>
-        
-        <p><strong>Cookies and similar technologies.</strong> Our website uses a minimal set of cookies necessary for the Service to function. We do not use advertising cookies or third-party tracking pixels.</p>
-        
-        <h2>3. How We Use Your Information</h2>
-        <p>We use your information to:</p>
-        <ul>
-            <li>Provide the core functionality of the Service, including generating personalized insights, charts, and protocol tracking.</li>
-            <li>Authenticate you and secure your account.</li>
-            <li>Communicate with you about your account, important changes to the Service, and (only with your consent) product updates.</li>
-            <li>Improve and debug the Service using anonymized, aggregated data.</li>
-            <li>Comply with legal obligations.</li>
-        </ul>
-        <p>We do <strong>not</strong> use your health data to train machine learning models without your explicit, separate consent, and we do <strong>not</strong> sell your data to anyone, ever.</p>
-        
-        <h2>4. How We Store and Protect Your Data</h2>
-        <p>Your health data is stored on encrypted servers. Your personal identity (name, email) is stored separately from your health records and linked only by an anonymous identifier that we control. Data is encrypted in transit (TLS) and at rest.</p>
-        <p>We follow industry-standard security practices, including access controls, audit logging, and regular security reviews. No system is perfectly secure, but we work hard to protect your information and will notify you promptly if we ever become aware of a breach affecting your data.</p>
-        
-        <h2>5. Who Can See Your Data</h2>
-        <p><strong>You.</strong> Your full health record is visible only to you when logged in to your account.</p>
-        <p><strong>Our team.</strong> Our team members can only access anonymized, aggregated data for the purpose of product improvement, and only with your separate research consent for any individual-level access. No staff member browses identifiable user health data in the ordinary course of business.</p>
-        <p><strong>Service providers.</strong> We use a small number of vetted third-party infrastructure providers (e.g., cloud hosting, error monitoring) who process data on our behalf under contractual confidentiality and security obligations. They are not permitted to use your data for any other purpose.</p>
-        <p><strong>Legal disclosures.</strong> We may disclose information if required by law, valid legal process, or to protect the rights, safety, or property of users or the public. We will challenge overbroad requests where appropriate and notify you when legally permitted.</p>
-        <p><strong>We will never sell your data.</strong></p>
-        
-        <h2>6. Your Rights and Choices</h2>
-        <p>You have the right to:</p>
-        <ul>
-            <li><strong>Access</strong> your data — view it any time within the app.</li>
-            <li><strong>Export</strong> all your data from Settings in a portable format.</li>
-            <li><strong>Correct</strong> inaccurate information.</li>
-            <li><strong>Delete</strong> your data or your entire account at any time from Settings. Deleting your account permanently removes all health records within 30 days, except where retention is required by law.</li>
-            <li><strong>Withdraw consent</strong> for optional processing (such as research participation) at any time.</li>
-        </ul>
-        <p>Depending on where you live, you may have additional rights under laws such as the EU/UK GDPR, California Consumer Privacy Act (CCPA/CPRA), Washington's My Health My Data Act, or similar laws. To exercise any of these rights, contact <strong>privacy@37degreesn.com</strong>.</p>
-        
-        <h2>7. Data Retention</h2>
-        <p>We retain your health data for as long as your account is active. When you delete your account, we permanently remove your health records within 30 days. Anonymized, aggregated data that cannot be linked back to you may be retained for research and product improvement.</p>
-        
-        <h2>8. Children</h2>
-        <p>The Service is not directed to children under 16, and we do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
-        
-        <h2>9. International Users</h2>
-        <p>If you access the Service from outside the country where our servers are located, your information may be transferred, stored, and processed in another country. We use appropriate safeguards (such as standard contractual clauses) for international transfers where required by law.</p>
-        
-        <h2>10. Not a Medical Service</h2>
-        <p>Protocols from 37°N is a wellness and self-tracking tool. It is <strong>not</strong> a medical device, and we are <strong>not</strong> a HIPAA-covered entity in the ordinary course of providing the Service to individual users. The information in the Service is not medical advice. Always consult a qualified healthcare professional for medical decisions.</p>
-        
-        <h2>11. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. If we make material changes, we will notify you in the app or by email before they take effect. The "Last updated" date at the top reflects the most recent revision.</p>
-        
-        <h2>12. Contact Us</h2>
-        <p>Questions, requests, or concerns? Reach us at <strong>privacy@37degreesn.com</strong>.</p>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="brand">37&deg;N&nbsp;Labs</a>
+      <div class="nav-links">
+        <a href="index.html#mission" class="mono nav-link-text">Mission</a>
+        <a href="index.html#science" class="mono nav-link-text">The Science</a>
+        <a href="index.html#team" class="mono nav-link-text">Team</a>
+        <a href="index.html#experiments" class="mono nav-link-text">Experiments</a>
+        <a href="index.html#join" class="btn btn-ink btn-sm">Join early access</a>
+      </div>
     </div>
+  </nav>
+
+  <!-- ═══ LEGAL HERO ═══ -->
+  <header class="legal-hero">
+    <div class="wrap">
+      <a href="index.html" class="back-link">&larr; Back to Home</a>
+      <h1>Privacy Policy</h1>
+      <div class="legal-meta">Protocols from 37°N &mdash; Last updated: April 9, 2026</div>
+    </div>
+  </header>
+
+  <!-- ═══ LEGAL BODY ═══ -->
+  <main class="legal-body">
+    <div class="wrap">
+      <p>This Privacy Policy explains how Protocols from 37°N ("we," "us," or "our") collects, uses, stores, and protects information when you use our website and application (collectively, the "Service"). We take your privacy — and especially the sensitivity of health information — seriously.</p>
+
+      <p>By using the Service, you agree to the practices described in this Privacy Policy.</p>
+
+      <h2>1. Who We Are</h2>
+      <p>Protocols from 37°N provides a personal health tracking and self-experimentation tool that helps you collect, organize, and learn from your own health data. If you have questions about this policy or your data, contact us at <strong>privacy@37degreesn.com</strong>.</p>
+
+      <h2>2. Information We Collect</h2>
+      <p><strong>Account information.</strong> When you create an account, we collect your name, email address, and authentication credentials.</p>
+      <p><strong>Health and wellness data.</strong> With your permission, we collect data you sync from connected devices or log manually, including: steps, heart rate, sleep, heart rate variability (HRV), weight, mood, hydration, stool, medication, and journal entries. We also store the experiments and protocols you create within the Service.</p>
+      <p><strong>Usage data.</strong> We collect basic technical information about how you interact with the Service, such as device type, operating system, app version, crash logs, and timestamps of activity. This helps us keep the Service stable and secure.</p>
+      <p><strong>Cookies and similar technologies.</strong> Our website uses a minimal set of cookies necessary for the Service to function. We do not use advertising cookies or third-party tracking pixels.</p>
+
+      <h2>3. How We Use Your Information</h2>
+      <p>We use your information to:</p>
+      <ul>
+        <li>Provide the core functionality of the Service, including generating personalized insights, charts, and protocol tracking.</li>
+        <li>Authenticate you and secure your account.</li>
+        <li>Communicate with you about your account, important changes to the Service, and (only with your consent) product updates.</li>
+        <li>Improve and debug the Service using anonymized, aggregated data.</li>
+        <li>Comply with legal obligations.</li>
+      </ul>
+      <p>We do <strong>not</strong> use your health data to train machine learning models without your explicit, separate consent, and we do <strong>not</strong> sell your data to anyone, ever.</p>
+
+      <h2>4. How We Store and Protect Your Data</h2>
+      <p>Your health data is stored on encrypted servers. Your personal identity (name, email) is stored separately from your health records and linked only by an anonymous identifier that we control. Data is encrypted in transit (TLS) and at rest.</p>
+      <p>We follow industry-standard security practices, including access controls, audit logging, and regular security reviews. No system is perfectly secure, but we work hard to protect your information and will notify you promptly if we ever become aware of a breach affecting your data.</p>
+
+      <h2>5. Who Can See Your Data</h2>
+      <p><strong>You.</strong> Your full health record is visible only to you when logged in to your account.</p>
+      <p><strong>Our team.</strong> Our team members can only access anonymized, aggregated data for the purpose of product improvement, and only with your separate research consent for any individual-level access. No staff member browses identifiable user health data in the ordinary course of business.</p>
+      <p><strong>Service providers.</strong> We use a small number of vetted third-party infrastructure providers (e.g., cloud hosting, error monitoring) who process data on our behalf under contractual confidentiality and security obligations. They are not permitted to use your data for any other purpose.</p>
+      <p><strong>Legal disclosures.</strong> We may disclose information if required by law, valid legal process, or to protect the rights, safety, or property of users or the public. We will challenge overbroad requests where appropriate and notify you when legally permitted.</p>
+      <p><strong>We will never sell your data.</strong></p>
+
+      <h2>6. Your Rights and Choices</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> your data — view it any time within the app.</li>
+        <li><strong>Export</strong> all your data from Settings in a portable format.</li>
+        <li><strong>Correct</strong> inaccurate information.</li>
+        <li><strong>Delete</strong> your data or your entire account at any time from Settings. Deleting your account permanently removes all health records within 30 days, except where retention is required by law.</li>
+        <li><strong>Withdraw consent</strong> for optional processing (such as research participation) at any time.</li>
+      </ul>
+      <p>Depending on where you live, you may have additional rights under laws such as the EU/UK GDPR, California Consumer Privacy Act (CCPA/CPRA), Washington's My Health My Data Act, or similar laws. To exercise any of these rights, contact <strong>privacy@37degreesn.com</strong>.</p>
+
+      <h2>7. Data Retention</h2>
+      <p>We retain your health data for as long as your account is active. When you delete your account, we permanently remove your health records within 30 days. Anonymized, aggregated data that cannot be linked back to you may be retained for research and product improvement.</p>
+
+      <h2>8. Children</h2>
+      <p>The Service is not directed to children under 16, and we do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
+
+      <h2>9. International Users</h2>
+      <p>If you access the Service from outside the country where our servers are located, your information may be transferred, stored, and processed in another country. We use appropriate safeguards (such as standard contractual clauses) for international transfers where required by law.</p>
+
+      <h2>10. Not a Medical Service</h2>
+      <p>Protocols from 37°N is a wellness and self-tracking tool. It is <strong>not</strong> a medical device, and we are <strong>not</strong> a HIPAA-covered entity in the ordinary course of providing the Service to individual users. The information in the Service is not medical advice. Always consult a qualified healthcare professional for medical decisions.</p>
+
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. If we make material changes, we will notify you in the app or by email before they take effect. The "Last updated" date at the top reflects the most recent revision.</p>
+
+      <h2>12. Contact Us</h2>
+      <p>Questions, requests, or concerns? Reach us at <strong>privacy@37degreesn.com</strong>.</p>
+    </div>
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">37&deg;N&nbsp;Labs</div>
+          <div class="footer-tag">End generic health</div>
+          <div class="footer-legal">
+            <a href="terms-of-service.html">Terms of Service</a>
+            <span class="footer-legal-sep">·</span>
+            <a href="privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="mono">Connect</span>
+            <a href="index.html#join">Early access</a>
+            <a href="mailto:pree@37degreesN.com">Investors</a>
+            <a href="https://www.linkedin.com/company/37degreesn/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span class="mono">&copy; 2026 37&deg; North &mdash; home of the unconventional</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
+
 </html>
